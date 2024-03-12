@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "Movie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "director": {
+      "type": "string"
+    },
+    "screenwriter": {
+      "type": "string"
+    },
+    "poster": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "screenshots": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "trailer_link": {
+      "type": "string"
+    },
+    "production": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "director_photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "movies"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "photography": {
+      "type": "string"
+    },
+    "tickets_available": {
+      "type": "integer",
+      "default": 55
+    },
+    "visitors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::visitor.visitor",
+      "private": true,
+      "mappedBy": "movie"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "composer": {
+      "type": "string"
+    }
+  }
+}
